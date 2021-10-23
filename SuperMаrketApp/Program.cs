@@ -27,6 +27,7 @@ namespace SuperMаrketApp
             cashier.GoingToWork();
             cashier.ControleProcessSales();
             cashier.ClosedShift(2500000);
+            
 
 
             
