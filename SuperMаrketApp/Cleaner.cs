@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using SuperMаrketApp.Interfaces;
+using System;
 namespace SuperMаrketApp
 {
-    interface ICleanerService
-    {
-        void Cleaning();
-    }
-    class Cleaner:ICleanerService,IWorkerService
+    public class Cleaner:ICleaner,IWorker
     {
         public Cleaner(int age, string name)
         {
@@ -18,6 +10,7 @@ namespace SuperMаrketApp
             Name = name;
 
         }
+
         public int Age { get; set; }
         public string Name { get; set; }
 

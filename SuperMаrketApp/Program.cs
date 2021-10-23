@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SuperMаrketApp
+﻿namespace SuperMаrketApp
 {
     class Program
     {
@@ -21,17 +15,12 @@ namespace SuperMаrketApp
             cleanerstaff.Hiring(cleaner);
             cleaner.GoingToWork();
             cleaner.Cleaning();
-            Casher cashier = new Casher(21, "Anna");
-            StaffService<Casher> cashierstaff = new StaffService<Casher>();
+            Cashier cashier = new Cashier(21, "Anna");
+            StaffService<Cashier> cashierstaff = new StaffService<Cashier>();
             cashierstaff.Hiring(cashier);
             cashier.GoingToWork();
             cashier.ControleProcessSales();
             cashier.ClosedShift(2500000);
-            
-
-
-            
-           
         }
     }
 }

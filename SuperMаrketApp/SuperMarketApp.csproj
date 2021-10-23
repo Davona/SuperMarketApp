@@ -44,11 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cleaner.cs" />
+    <Compile Include="Interfaces\ICashier.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security.cs" />
     <Compile Include="StaffService.cs" />
-    <Compile Include="Cachier.cs" />
+    <Compile Include="Cashier.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

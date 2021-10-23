@@ -1,23 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using SuperMаrketApp.Interfaces;
+using System;
 namespace SuperMаrketApp
 {
-    interface ICashierService
+    public class Cashier : ICashier, IWorker
     {
-        int ClosedShift(int dailyRevenue);
-        void ControleProcessSales();
-    }
-    class Casher:ICashierService,IWorkerService
-    {
-        public Casher(int age, string name)
+        public Cashier(int age, string name)
         {
             Age = age;
             Name = name;
         }
+
         public int Age { get; set; }
         public string Name { get; set; }
 
