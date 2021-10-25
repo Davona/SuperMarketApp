@@ -13,9 +13,9 @@ namespace SuperMаrketApp
         public int Age { get; set; }
         public string Name { get; set; }
 
-        public int ClosedShift(int dailyRevenue)
+        public int ClosedShift(int dailyRevenue, int ClientsCount)
         {
-            return dailyRevenue;
+            return dailyRevenue / ClientsCount;
         }
 
         public void ControleProcessSales()

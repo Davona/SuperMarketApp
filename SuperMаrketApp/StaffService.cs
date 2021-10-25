@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 namespace SuperMаrketApp
 {
-    public class StaffService<T> : IStaffService<T>
+    public class StaffService<T> : IStaffService<T>,IGetAll<T>
     {
         List<T> workers;
 
-        public StaffService()
+        public StaffService(int count)
         {
-            workers = new List<T>();
+            if (count>3)
+            {
+                workers = new List<T>(count);
+            }
         }
 
         public void Dismissal(T worker)
@@ -19,6 +22,11 @@ namespace SuperMаrketApp
         public void Hiring(T worker)
         {
             workers.Add(worker);
+        }
+
+        public List<T> GetAll() 
+        {
+            return workers;
         }
     }
 }

@@ -1,26 +1,52 @@
-﻿namespace SuperMаrketApp
+﻿using SuperMаrketApp.Interfaces;
+using System;
+using System.Collections.Generic;
+
+namespace SuperMаrketApp
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Security security = new Security(25, "Ashot");
-            StaffService<Security> securitystaff = new StaffService<Security>();
-            securitystaff.Hiring(security);
-            security.GoingToWork();
-            security.CheckStaff();
-            security.CheckTerritory();
-            Cleaner cleaner = new Cleaner(45, "Armine");
-            StaffService<Cleaner> cleanerstaff = new StaffService<Cleaner>();
-            cleanerstaff.Hiring(cleaner);
-            cleaner.GoingToWork();
-            cleaner.Cleaning();
-            Cashier cashier = new Cashier(21, "Anna");
-            StaffService<Cashier> cashierstaff = new StaffService<Cashier>();
-            cashierstaff.Hiring(cashier);
-            cashier.GoingToWork();
-            cashier.ControleProcessSales();
-            cashier.ClosedShift(2500000);
+
+            ILogger logger = new Logger();
+            try
+            {
+                StaffService<Security> securitystaff = new StaffService<Security>(-1);
+                StaffService<Cashier> cashierstaff = new StaffService<Cashier>(5);
+                Cashier cashier = new Cashier(25, "Armen");
+                cashierstaff.Hiring(cashier);
+                cashier.ClosedShift(100000, 0);
+                StaffService<Cleaner> cleanerstaff = new StaffService<Cleaner>(2);
+                Cleaner cleaner = new Cleaner(25, "Anna");
+                cleanerstaff.Hiring(cleaner);
+                List<Cleaner> cleaners = cleanerstaff.GetAll();
+                cleaners[0].Cleaning();
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                string log = logger.CreateLogger(ex);
+                logger.Log(log);
+                Console.WriteLine("Some Error Occured");
+            }
+            catch (DivideByZeroException ex)
+            {
+                string log = logger.CreateLogger(ex);
+                logger.Log(log);
+                Console.WriteLine("Some Error Occured");
+            }
+            catch (ArgumentNullException ex)
+            {
+                string log = logger.CreateLogger(ex);
+                logger.Log(log);
+                Console.WriteLine("Some Error Occured");
+            }
+            catch (Exception ex)
+            {
+                string log = logger.CreateLogger(ex);
+                logger.Log(log);
+                Console.WriteLine("Some Error Occured");
+            }
         }
     }
 }
